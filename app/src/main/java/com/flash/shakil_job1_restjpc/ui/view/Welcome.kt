@@ -1,6 +1,5 @@
 package com.flash.shakil_job1_restjpc.ui.view
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -13,25 +12,21 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.SegmentedButtonDefaults.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import coil.singleton.R
 
 
 @Composable
@@ -40,7 +35,7 @@ fun WelcomeScreen(navController: NavController) {
         modifier = Modifier.fillMaxSize()
             .background(
                 Brush.verticalGradient(
-                    colors = listOf(Color(0xFF6200EE),Color(0xFF3700B3))
+                    colors = listOf(Color(0xFF6200EE), Color(0xFF3700B3))
                 )
             )
     ) {
@@ -68,7 +63,7 @@ fun WelcomeScreen(navController: NavController) {
                 text = "Discover amazing features and start your journey with us",
                 fontSize = 16.sp,
                 color = Color(0xFFE0E0E0),
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                textAlign = TextAlign.Center
             )
 
             Spacer(modifier = Modifier.height(48.dp))
@@ -95,7 +90,5 @@ fun WelcomeScreen(navController: NavController) {
                 )
             }
         }
-
     }
-
 }
