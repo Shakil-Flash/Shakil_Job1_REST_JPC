@@ -16,6 +16,9 @@ class ProductViewModel(): ViewModel() {
     private val _products = MutableStateFlow<Resource<List<Product>>>(Resource.Loading())
     val products: StateFlow<Resource<List<Product>>> = _products.asStateFlow()
 
+    private val _searchResults = MutableStateFlow<List<Product>>(emptyList())
+    val searchResults: StateFlow<List<Product>> = _searchResults.asStateFlow()
+
     private var allProducts = listOf<Product>()
 
     fun loadProducts() {
@@ -43,4 +46,30 @@ class ProductViewModel(): ViewModel() {
     fun getProductById(id: Int): Product? {
         return allProducts.find { it.id == id }
     }
+
+    fun searchProducts(query: String) {
+        val results = if (query.isBlank()) {
+            allProducts
+        } else {
+            allProducts.filter { product ->
+                product.title.contains(query, ignoreCase = true) ||
+                product.category?.name?.contains(query, ignoreCase = true) == true
+            }
+        }
+        _searchResults.value = results
+    }
+
+    fun getCategories(): List<String> {
+        return allProducts.mapNotNull { it.category?.name }.distinct().sorted()
+    }
+
+    fun filterByCategory(category: String) {
+        val results = if (category.isEmpty()) {
+            allProducts
+        } else {
+            allProducts.filter { it.category?.name == category }
+        }
+        _searchResults.value = results
+    }
 }
+

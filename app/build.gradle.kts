@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    kotlin("plugin.serialization") version "1.9.22"
 }
 
 android {
@@ -82,4 +83,10 @@ dependencies {
 
     // Kotlin Navigation UI (to link with BottomNav, Toolbars, etc.)
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+    // DataStore for persistence
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    // Kotlin Serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 }

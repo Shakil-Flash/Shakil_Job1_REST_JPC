@@ -5,17 +5,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-
 interface ApiService {
-
     @GET("products")
     suspend fun getProducts(): List<Product>
-
 }
 
-object ApiClient{
-
-    private const val BASE_URL = "https://fakestoreapi.com/"
+object ApiClient {
+    private const val BASE_URL = "https://api.escuelajs.co/api/v1/"
 
     val api: ApiService by lazy {
         Retrofit.Builder()
@@ -25,5 +21,3 @@ object ApiClient{
             .create(ApiService::class.java)
     }
 }
-
-
