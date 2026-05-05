@@ -109,3 +109,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+
+//Wow i made a nice app
+
